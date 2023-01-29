@@ -1,0 +1,76 @@
+npm run test -- 06-person para correr un test especifico
+
+Pruebas estaticas:
+  -eslint
+  -typescript
+  -estaticas
+
+Pruebas funcionales:
+  -Unitarias
+  -Integrales
+  -End to end
+
+Quién hace las pruebas? El que escribe el codigo debe escribir pruebas Unitarias.
+Luego, para las otras pruebas puede delegarse.
+
+Pruebas no funcionales:
+  -Rendimiento
+  -de carga o estabilidad
+  -de estres
+  -usabilidad
+  -seguridad
+
+Metodologias:
+  TDD: se escribe la prueba antes del codigo
+    -Agregar pruebas
+    -Ver prueba fallar
+    -Escribir codigo
+    -Pasar prueba
+    -Refactorizar codigo
+  BDD: de acuerdo a los requisitos escribimos las pruebas
+    -User story
+    -Discovery
+    -Formulation
+    -Automation
+    -Workingsoftware
+
+AAA: Dado algo, actuo, entonces..
+  A: arrange (configuración previa)
+  A: act  (ejecutar alguna funcion)
+  A: assert (esperar la prueba)
+
+Falso positivo: una prueba hago un expect(1 + 1).toBe(5) lo que pasa acá es que la prueba es la que está mal escrita.
+Falso negativo: las pruebas deben ampliarse.
+
+Sistema Legacy: Son sistemas que te piden agregar pruebas a algo funcional, incluso en paralelo; hay que refactorizar los métodos enormes a pequeños para hacer unit test de pocos a muchos métodos; legacy no lleva una buena arquitectura.
+
+Clean Architecture Este patrón lleva buenas prácticas desde el principio, cada método está bien dividido y con responsabilidades acertadas, es mucho más facil de agregar el set de pruebas.
+
+Unit Tests:
+  -Prueban una unidad en especifico
+  -Identificar las dependencias para reemplazarlas (por ejemplo una bbdd). Probar con un dummy y no con la bbdd
+  -Pruebas de estado o caja negra. Solo nos importa probar entrada y salida. No me importa lo que hace la función, solamente lo que devuelve.
+  -Pruebas de caja blanca: sí me importa lo que hay dentro de cada función o metodo.
+  -Unidad: puede ser una funcion, un metodo o una clase. Depende del paradigma de programación utilizado.
+
+Reporte de cobertura:
+  -Qué tanto nos falta cubrir o testear
+  - npm run test -- --coverage
+
+Mongo con Docker:
+
+PARA LEVANTAR MONGO CON DOCKER => docker-compose up -d mongo
+PARA CORROBORAR QUE ESTA CORRIENDO => docker-compose ps
+Para bajarla => docker-compose down
+
+Dummy: Datos ficticios para rellenar cierta información
+Fake: simulan el comportamiento o datos. Un usuario fake por ejemplo.
+Stubs: Proveen respuestas preparadas y se pueden llamar durante el test para simular comportamiento.
+Spies: son como los stubs pero puedo recolectar informacion de como fue llamado
+Mocks: Stub + Spies, pueden estar pre programados para enviar las respuestas supuestas.
+
+UI Tests:
+  PlayWright => para hacer simulacion de navegadores
+  npm i -D @playwright/test
+  npx playwright install
+  npx playwright test || npx playwright test --headed
